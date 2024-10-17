@@ -1,9 +1,6 @@
-main {
+.main {
   margin-top: 1rem;
   width: 80%;
   margin: auto;
-}
-
-.content {
-  padding-top: 64px; /* Adjust this value based on your toolbar height */
+  padding-top: 64px;
 }

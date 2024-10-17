@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { Post } from '../../models/post.model';
 
 @Component({
   selector: 'app-post-create',
@@ -12,9 +13,10 @@ import { MatButtonModule } from '@angular/material/button';
   imports: [MatInputModule, FormsModule, MatCardModule, MatButtonModule],
 })
 export class PostCreateComponent {
-  enteredValue = '';
-  newPost = 'NO CONTENT';
+  enteredTitle = '';
+  enteredContent = '';
+
   onAddPost() {
-    this.newPost = this.enteredValue;
+    const post: Post = { title: this.enteredTitle, content: this.enteredContent };
   }
 }
