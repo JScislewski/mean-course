@@ -1,10 +1,12 @@
 <mat-card class="post-card">
-  <mat-form-field appearance="outline">
-    <textarea matInput rows="6" [(ngModel)]="enteredValue"></textarea>
-  </mat-form-field>
-  <div class="button-container">
-    <button mat-flat-button color="primary" (click)="onAddPost()">Save Post</button>
-  </div>
+  <mat-card-content>
+    <mat-form-field appearance="outline" class="textarea-container">
+      <textarea matInput placeholder="Write your post..." rows="6" [(ngModel)]="enteredValue"></textarea>
+    </mat-form-field>
+    <div class="button-container">
+      <button mat-flat-button color="primary" (click)="onAddPost()">Save Post</button>
+    </div>
+  </mat-card-content>
 </mat-card>
 <hr />
 <p>{{ newPost }}</p>
