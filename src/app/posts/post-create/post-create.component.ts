@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
@@ -15,8 +15,10 @@ import { Post } from '../../models/post.model';
 export class PostCreateComponent {
   enteredTitle = '';
   enteredContent = '';
+  @Output() postCreated = new EventEmitter();
 
   onAddPost() {
     const post: Post = { title: this.enteredTitle, content: this.enteredContent };
+    this.postCreated.emit(post);
   }
 }

@@ -4,6 +4,7 @@ import { PostCreateComponent } from './posts/post-create/post-create.component';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header/header.component';
 import { PostListComponent } from './posts/post-list/post-list.component';
+import { Post } from './models/post.model';
 
 @Component({
   selector: 'app-root',
@@ -13,5 +14,9 @@ import { PostListComponent } from './posts/post-list/post-list.component';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'mean-course';
+  storedPosts: Post[] = [];
+
+  onPostAdded(post: Post) {
+    this.storedPosts.push(post);
+  }
 }
