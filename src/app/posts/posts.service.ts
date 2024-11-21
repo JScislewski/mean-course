@@ -4,15 +4,15 @@ import { BehaviorSubject } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class PostsService {
-  private posts: Post[] = []; // Stores the list of posts
-  private postsUpdated = new BehaviorSubject<Post[]>(this.posts); // Default value for the BehaviorSubject
+  private posts: Post[] = [];
+  private postsUpdated = new BehaviorSubject<Post[]>(this.posts);
 
   /**
    * Retrieves a copy of the posts array.
    * @returns a new array containing the posts
    */
   getPosts(): Post[] {
-    return [...this.posts]; // Return a shallow copy to prevent external modification
+    return [...this.posts];
   }
 
   /**
@@ -20,7 +20,7 @@ export class PostsService {
    * @returns an observable of the current posts
    */
   getPostUpdateListener() {
-    return this.postsUpdated.asObservable(); // Subscribable to updates
+    return this.postsUpdated.asObservable();
   }
 
   /**
@@ -29,8 +29,8 @@ export class PostsService {
    * @param content - The content of the post
    */
   addPost(title: string, content: string): void {
-    const newPost: Post = { title, content }; // Using shorthand property initialization
-    this.posts.push(newPost); // Add new post to the array
-    this.postsUpdated.next([...this.posts]); // Notify all subscribers with the updated posts
+    const newPost: Post = { title, content };
+    this.posts.push(newPost);
+    this.postsUpdated.next([...this.posts]);
   }
 }

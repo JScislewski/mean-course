@@ -1,26 +1,45 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { Post } from '../../models/post.model';
 import { PostsService } from '../posts.service';
-import { Subject } from 'rxjs/internal/Subject';
+import { Subscription } from 'rxjs';
+
 @Component({
   selector: 'app-post-list',
   standalone: true,
   imports: [MatExpansionModule, MatFormFieldModule, CommonModule],
-  providers: [PostsService],
   templateUrl: './post-list.component.html',
   styleUrls: ['./post-list.component.css'],
 })
-export class PostListComponent implements OnInit {
-  private posts: Post[] = [];
-  constructor(public postsService: PostsService) {}
+export class PostListComponent implements OnInit, OnDestroy {
+  posts: Post[] = [];
+  private postsSubscription: Subscription = new Subscription();
 
+  constructor(private postsService: PostsService) {}
+
+  /**
+   * Initializes the component and subscribes to post updates.
+   */
   ngOnInit(): void {
-    this.posts = this.postsService.getPosts();
-    this.postsService.getPostUpdateListener().subscribe((posts: Post[]) => {
+    this.fetchPosts();
+    this.postsSubscription = this.postsService.getPostUpdateListener().subscribe((posts: Post[]) => {
       this.posts = posts;
     });
+  }
+
+  /**
+   * Unsubscribes from post updates to prevent memory leaks.
+   */
+  ngOnDestroy(): void {
+    this.postsSubscription.unsubscribe();
+  }
+
+  /**
+   * Fetches posts from the PostsService.
+   */
+  private fetchPosts(): void {
+    this.posts = this.postsService.getPosts();
   }
 }
