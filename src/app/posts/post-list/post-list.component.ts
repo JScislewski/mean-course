@@ -4,6 +4,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { Post } from '../../models/post.model';
 import { PostsService } from '../posts.service';
+import { Subject } from 'rxjs/internal/Subject';
 @Component({
   selector: 'app-post-list',
   standalone: true,
@@ -13,9 +14,13 @@ import { PostsService } from '../posts.service';
   styleUrls: ['./post-list.component.css'],
 })
 export class PostListComponent implements OnInit {
-  @Input() posts: Post[] = [];
+  private posts: Post[] = [];
   constructor(public postsService: PostsService) {}
+
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.posts = this.postsService.getPosts();
+    this.postsService.getPostUpdateListener().subscribe((posts: Post[]) => {
+      this.posts = posts;
+    });
   }
 }

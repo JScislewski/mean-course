@@ -1,9 +1,9 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { PostsService } from './../posts.service';
+import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { MatInputModule, MatError } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { Post } from '../../models/post.model';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -14,13 +14,12 @@ import { CommonModule } from '@angular/common';
   imports: [MatInputModule, FormsModule, MatCardModule, MatButtonModule, MatError, CommonModule],
 })
 export class PostCreateComponent {
-  @Output() postCreated = new EventEmitter();
+  constructor(public postsService: PostsService) {}
 
   onAddPost(form: NgForm) {
     if (form.invalid) {
       return;
     }
-    const post: Post = { title: form.value.title, content: form.value.content };
-    this.postCreated.emit(post);
+    this.postsService.addPost(form.value.title, form.value.content);
   }
 }
