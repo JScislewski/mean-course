@@ -1,64 +1,62 @@
-/* Importing Google Font should be done in index.html */
 .post-list {
-  max-width: 600px; /* Max width for the accordion */
-  margin: 20px auto; /* Centering the accordion */
-  background-color: #ffffff; /* White background for the accordion */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  max-width: 800px; /* Maximum width for the accordion to give it presence */
+  margin: 20px auto; /* Center the accordion on the page */
+  border-radius: 10px; /* Rounded corners for a softer look */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Deep shadow for depth */
 }
 
 mat-expansion-panel {
   margin-bottom: 16px; /* Space between panels */
   border: none; /* Remove default borders */
-  border-radius: 8px; /* Rounded corners for each panel */
-  overflow: hidden; /* Maintain rounded corners */
-  transition: box-shadow 0.3s ease; /* Smooth transition for shadows */
-}
-
-mat-expansion-panel:hover {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
 }
 
 mat-expansion-panel-header {
-  border-radius: 8px 8px 0 0; /* Rounded top corners */
+  border-radius: 8px; /* Rounded corners */
   padding: 16px; /* Padding inside the header */
-  transition: background-color 0.3s ease; /* Smooth background transition */
-  font-family: "Roboto", sans-serif; /* Using Roboto font */
+  transition: background-color 0.3s; /* Smooth background transition */
 }
 
 mat-expansion-panel-header:hover {
-  background-color: #e0e0e0; /* Darken background on hover */
+  background-color: #e0e0e0; /* Slightly darker on hover */
 }
 
 .post-title {
-  font-size: 1.5em; /* Title font size */
+  font-size: 1.6em; /* Larger font size for easy readability */
   margin: 0; /* Remove default margin */
-  font-weight: 700; /* Bold for emphasis */
+  font-weight: 600; /* Semi-bold for emphasis */
   color: #333; /* Dark text color */
-  text-transform: capitalize; /* Capitalize each word */
-  transition:
-    color 0.3s ease,
-    transform 0.3s ease; /* Transition effects */
-  font-family: "Roboto", sans-serif; /* Using Roboto font */
-}
-
-mat-expansion-panel-header:hover .post-title {
-  color: #1976d2; /* Change color on hover */
-  transform: scale(1.02); /* Slightly scale up on hover */
 }
 
 mat-panel-description {
-  padding: 16px; /* Padding inside the description */
-  background-color: #ffffff; /* White background for content */
-  border-top: 1px solid #e0e0e0; /* Top border for separation */
-  font-family: "Roboto", sans-serif; /* Consistent font for description */
+  padding: 16px; /* Padding for content */
+  border-top: 1px solid #e0e0e0; /* Separate content area */
 }
 
 .post-content {
-  color: #555; /* Dark grey for post content */
-  line-height: 1.6; /* Improved line height for readability */
+  color: #555; /* Dark grey for content */
+  line-height: 1.7; /* Improved line height for readability */
   margin: 0; /* Remove default margin */
-  font-family: "Roboto", sans-serif; /* Consistent font for content */
+  font-family: "Roboto", sans-serif; /* Consistent font */
+}
+
+mat-action-row {
+  padding: 10px 16px; /* Padding for action row */
+  border-top: 1px solid #e0e0e0; /* Top border for separation */
+}
+
+mat-action-row button {
+  color: #1976d2; /* Primary color for buttons */
+  font-weight: 500; /* Medium weight for buttons */
+  transition:
+    background-color 0.3s,
+    color 0.3s; /* Smooth transition for hover effects */
+  padding: 8px 12px; /* Padding for buttons */
+  border-radius: 4px; /* Slightly rounded button corners */
+}
+
+mat-action-row button:hover {
+  background-color: #e1f5fe; /* Light blue background on hover */
+  color: #0d47a1; /* Darker color on hover */
 }
 
 .empty-state {
@@ -66,7 +64,7 @@ mat-panel-description {
   font-style: italic; /* Italic style for emphasis */
   color: #888; /* Light grey for empty state text */
   padding: 16px; /* Padding for empty state */
-  font-family: "Roboto", sans-serif; /* Consistent font for empty state */
+  font-family: "Roboto", sans-serif; /* Consistent font */
 }
 
 /* Responsive adjustments */
@@ -76,11 +74,7 @@ mat-panel-description {
     padding: 10px; /* Reduced padding */
   }
 
-  mat-expansion-panel {
-    padding: 10px; /* Adjust padding for expansion panels on mobile */
-  }
-
   .post-title {
-    font-size: 1.3em; /* Smaller title font size for mobile */
+    font-size: 1.4em; /* Adjust title size for mobile */
   }
 }

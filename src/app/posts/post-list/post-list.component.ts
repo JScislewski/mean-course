@@ -5,11 +5,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { Post } from '../../models/post.model';
 import { PostsService } from '../posts.service';
 import { Subscription } from 'rxjs';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-post-list',
   standalone: true,
-  imports: [MatExpansionModule, MatFormFieldModule, CommonModule],
+  imports: [MatExpansionModule, MatFormFieldModule, CommonModule, MatButtonModule],
   templateUrl: './post-list.component.html',
   styleUrls: ['./post-list.component.css'],
 })

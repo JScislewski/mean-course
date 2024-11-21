@@ -1,5 +1,5 @@
-<mat-accordion class="post-list" multi>
-  <mat-expansion-panel *ngIf="posts.length === 0">
+<mat-accordion class="post-list" multi aria-label="Post List">
+  <mat-expansion-panel *ngIf="posts.length === 0" disabled>
     <mat-expansion-panel-header>
       <mat-panel-title>
         <span class="empty-state">No posts available.</span>
@@ -16,5 +16,9 @@
     <mat-panel-description>
       <p class="post-content">{{ post.content }}</p>
     </mat-panel-description>
+    <mat-action-row>
+      <button mat-button color="accent" class="edit-button">Edit</button>
+      <button mat-button color="warn" class="delete-button">Delete</button>
+    </mat-action-row>
   </mat-expansion-panel>
 </mat-accordion>
