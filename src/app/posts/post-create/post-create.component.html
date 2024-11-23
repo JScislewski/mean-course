@@ -8,7 +8,15 @@
 
     <mat-form-field appearance="outline" class="textarea-container">
       <mat-label>Write your post...</mat-label>
-      <textarea matInput rows="4" name="content" ngModel placeholder="Enter your post content here" required #content="ngModel"></textarea>
+      <textarea
+        matInput
+        rows="4"
+        name="content"
+        ngModel
+        placeholder="Enter your post content here"
+        required
+        #content="ngModel"
+      ></textarea>
       <mat-error *ngIf="content.invalid">Please enter a post content.</mat-error>
     </mat-form-field>
 
