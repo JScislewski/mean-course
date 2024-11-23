@@ -15,10 +15,15 @@ export class PostsService {
    * @returns a new array containing the posts
    */
   getPosts() {
-    this.http.get<{ message: String; posts: Post[] }>('http://localhost:3000/api/posts').subscribe((postData) => {
-      this.posts = postData.posts;
-      this.postsUpdated.next([...this.posts]);
-    });
+    this.http
+      .get<{
+        message: String;
+        posts: Post[];
+      }>('http://localhost:3000/api/posts')
+      .subscribe((postData) => {
+        this.posts = postData.posts;
+        this.postsUpdated.next([...this.posts]);
+      });
   }
 
   /**

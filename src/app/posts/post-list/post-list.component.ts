@@ -10,7 +10,12 @@ import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-post-list',
   standalone: true,
-  imports: [MatExpansionModule, MatFormFieldModule, CommonModule, MatButtonModule],
+  imports: [
+    MatExpansionModule,
+    MatFormFieldModule,
+    CommonModule,
+    MatButtonModule,
+  ],
   templateUrl: './post-list.component.html',
   styleUrls: ['./post-list.component.css'],
 })
@@ -25,9 +30,11 @@ export class PostListComponent implements OnInit, OnDestroy {
    */
   ngOnInit(): void {
     this.postsService.getPosts();
-    this.postsSubscription = this.postsService.getPostUpdateListener().subscribe((posts: Post[]) => {
-      this.posts = posts;
-    });
+    this.postsSubscription = this.postsService
+      .getPostUpdateListener()
+      .subscribe((posts: Post[]) => {
+        this.posts = posts;
+      });
   }
 
   /**
