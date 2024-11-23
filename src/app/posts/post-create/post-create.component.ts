@@ -11,14 +11,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   templateUrl: './post-create.component.html',
   styleUrl: './post-create.component.css',
-  imports: [
-    MatInputModule,
-    FormsModule,
-    MatCardModule,
-    MatButtonModule,
-    MatError,
-    CommonModule,
-  ],
+  imports: [MatInputModule, FormsModule, MatCardModule, MatButtonModule, MatError, CommonModule],
 })
 export class PostCreateComponent {
   constructor(public postsService: PostsService) {}
